@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://personEdit.caption"
+        focusComponent="form"
+        messagesPack="com.amberlabs.demotask.web.screens.person">
+    <data>
+        <instance id="personDc"
+                  class="com.amberlabs.demotask.entity.Person">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="personDc">
+            <column width="350px">
+                <textArea id="lastNameField" property="lastName" rows="1" caption="msg://lastNameField.caption"/>
+                <textArea id="firstNameField" property="firstName" rows="1" caption="msg://firstNameField.caption"/>
+                <textArea id="patronymicNameField" property="patronymicName" rows="1"
+                          caption="msg://patronymicNameField.caption"/>
+                <textField id="emailField" property="email" caption="msg://emailField.caption">
+                    <validators>
+                        <email message="Некорректный email"/>
+                    </validators>
+                </textField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
